@@ -18,10 +18,8 @@ plot1 <- function() {
     # Combine Date and Time so we can use DateTime in later plots
     dataFile$DateTime <- paste(dataFile$Date, dataFile$Time)
     
-    # Plot1: Create the histogram and write to screen device
-    hist(dataFile$Global_active_power, main = "Global Active Power", xlab = "Global Active Power (kilowatts)", ylab = "Frequency", col = "red", bg = "transparent")
-    
-    # Copy histogram to PNG and close the device
-    dev.copy(png, file = "plot1.png")
+    # Plot1: Open the PNG device, create the histogram and write to file
+    png(filename = "plot1.png",  bg = "transparent", width = 480, height = 480, type = "quartz")
+    hist(dataFile$Global_active_power, main = "Global Active Power", xlab = "Global Active Power (kilowatts)", ylab = "Frequency", col = "red")
     dev.off()
 }
