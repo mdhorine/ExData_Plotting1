@@ -21,7 +21,7 @@ plot2 <- function() {
     # Plot2: Create the line plot and write to screen device
     plot(as.POSIXlt(dataFile$DateTime), dataFile$Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
     
-    # Copy histogram to PNG and close the device
+    # Copy plot to PNG and close the device
     dev.copy(png, file = "plot2.png")
     dev.off()
 }
