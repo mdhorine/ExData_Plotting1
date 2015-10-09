@@ -19,7 +19,7 @@ plot1 <- function() {
     dataFile$DateTime <- paste(dataFile$Date, dataFile$Time)
     
     # Plot1: Open the PNG device, create the histogram and write to file
-    png(filename = "plot1.png",  bg = "transparent", width = 504, height = 504, type = "quartz")
+    png(filename = "plot1.png",  bg = "transparent", width = 480, height = 480, type = "quartz")
     hist(dataFile$Global_active_power, main = "Global Active Power", xlab = "Global Active Power (kilowatts)", ylab = "Frequency", col = "red")
     dev.off()
 }

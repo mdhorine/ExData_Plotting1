@@ -19,7 +19,7 @@ plot2 <- function() {
     dataFile$DateTime <- paste(dataFile$Date, dataFile$Time)
     
     # Plot2: Open the PNG device, create the plot and write to file
-    png(filename = "plot2.png",  bg = "transparent", width = 504, height = 504, type = "quartz")
+    png(filename = "plot2.png",  bg = "transparent", width = 480, height = 480, type = "quartz")
     plot(as.POSIXlt(dataFile$DateTime), dataFile$Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
     dev.off()
 }

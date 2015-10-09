@@ -19,7 +19,7 @@ plot3 <- function() {
     dataFile$DateTime <- paste(dataFile$Date, dataFile$Time)
     
     # Plot3: Open the PNG device, create the plot and write to file
-    png(filename = "plot3.png",  bg = "transparent", width = 504, height = 504, type = "quartz")
+    png(filename = "plot3.png",  bg = "transparent", width = 480, height = 480, type = "quartz")
     plot(as.POSIXlt(dataFile$DateTime), dataFile$Sub_metering_1, type = "n", xlab = "", ylab = "Energy sub metering")
     points(as.POSIXlt(dataFile$DateTime), dataFile$Sub_metering_1, type = "l")
     points(as.POSIXlt(dataFile$DateTime), dataFile$Sub_metering_2, type = "l", col = "red")
