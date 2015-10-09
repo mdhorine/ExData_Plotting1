@@ -15,17 +15,15 @@ plot3 <- function() {
     # Filter data table so we are just looking at the two days of data we need
     dataFile <- subset(dataFile, dataFile$Date == "2007-02-01" | dataFile$Date == "2007-02-02")
     
-    # Combine Date and Time so we can use DateTime in later plots
+    # Combine Date and Time so we can use DateTime in plots
     dataFile$DateTime <- paste(dataFile$Date, dataFile$Time)
     
-    # Plot3: Create the line plot and write to screen device
+    # Plot3: Open the PNG device, create the plot and write to file
+    png(filename = "plot3.png",  bg = "transparent", width = 504, height = 504, type = "quartz")
     plot(as.POSIXlt(dataFile$DateTime), dataFile$Sub_metering_1, type = "n", xlab = "", ylab = "Energy sub metering")
     points(as.POSIXlt(dataFile$DateTime), dataFile$Sub_metering_1, type = "l")
     points(as.POSIXlt(dataFile$DateTime), dataFile$Sub_metering_2, type = "l", col = "red")
     points(as.POSIXlt(dataFile$DateTime), dataFile$Sub_metering_3, type = "l", col = "blue")
     legend("topright", lwd = 2, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-    
-    # Copy plot to PNG and close the device
-    dev.copy(png, file = "plot3.png")
     dev.off()
 }
