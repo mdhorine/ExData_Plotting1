@@ -15,14 +15,12 @@ plot2 <- function() {
     # Filter data table so we are just looking at the two days of data we need
     dataFile <- subset(dataFile, dataFile$Date == "2007-02-01" | dataFile$Date == "2007-02-02")
     
-    # Combine Date and Time so we can use DateTime in later plots
+    # Combine Date and Time so we can use DateTime in plots
     dataFile$DateTime <- paste(dataFile$Date, dataFile$Time)
     
-    # Plot2: Create the line plot and write to screen device
+    # Plot2: Open the PNG device, create the plot and write to file
+    png(filename = "plot2.png",  bg = "transparent", width = 504, height = 504, type = "quartz")
     plot(as.POSIXlt(dataFile$DateTime), dataFile$Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
-    
-    # Copy plot to PNG and close the device
-    dev.copy(png, file = "plot2.png")
     dev.off()
 }
 
